@@ -3,20 +3,26 @@
     android:id="@+id/Titlebar"
     android:layout_width="match_parent"
     android:layout_height="35dip"
-    android:orientation="horizontal"
+    android:background="#ffffff"
     android:gravity="center"
-    android:padding="5dip"
-    android:background="#323331" >
+    android:orientation="horizontal"
+    android:padding="5dip" >
     
-    <ImageView 
+    <!-- <ImageView 
         android:id="@+id/header"
         android:src="@drawable/icon"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/header" />
-    
-    
-    
-
+        android:contentDescription="@string/header" />-->
+        
+        <TextView
+            android:id="@+id/titletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="take away malaysia"
+            android:textColor="#444"
+            android:textSize="30sp"
+            android:typeface="sans" />
+        
 </LinearLayout>
