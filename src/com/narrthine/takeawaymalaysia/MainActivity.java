@@ -36,6 +36,7 @@ public class MainActivity extends ListActivity {
         // to view take away malaysia header
        // View header = getLayoutInflater().inflate(R.layout.window_title, null);
         // get list view
+        getActionBar().setDisplayShowTitleEnabled(false);
         ListView lv = getListView();
        // lv.addHeaderView(header);
         setListAdapter(new IconicAdapter());
