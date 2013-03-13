@@ -74,6 +74,10 @@ public class MainActivity extends ListActivity {
 	    MenuItem item = menu.findItem(R.id.menu_item_share);
 	    mShareActionProvider = (ShareActionProvider) item.getActionProvider();
 	    mShareActionProvider.setShareIntent(createShareIntent());
+	    
+	    
+	    
+	    
 	    return true;
     }
     
@@ -89,7 +93,7 @@ public class MainActivity extends ListActivity {
 	private Intent createShareIntent(){
 		Intent I = new Intent(Intent.ACTION_SEND);
 		I.setType("text/plain");
-		I.putExtra(android.content.Intent.EXTRA_TEXT, "Download Take Away Malaysia! https://play.google.com/store/apps/details?id=com.narrthine.takeawaymalaysia");
+		I.putExtra(android.content.Intent.EXTRA_TEXT, "I'm using Take Away Malaysia to order fast food. Download it today! https://play.google.com/store/apps/details?id=com.narrthine.takeawaymalaysia");
 		return I;
 	}
    
@@ -101,7 +105,7 @@ public class MainActivity extends ListActivity {
     	        switch (which){
     	        case DialogInterface.BUTTON_POSITIVE:
     	            //Yes button clicked
-    	        	String phone = "tel:" + outletsNum[position-1].toString().trim();
+    	        	String phone = "tel:" + outletsNum[position].toString().trim();
     	        	Intent i = new Intent(Intent.ACTION_CALL, Uri.parse(phone));
     	        	startActivity(i);
     	            break;
@@ -114,11 +118,15 @@ public class MainActivity extends ListActivity {
     	};
 
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setMessage("Do you want to call " + outletsName[position-1] + "?").setPositiveButton("Yes", dialogClickListener)
+    	builder.setMessage("Do you want to call " + outletsName[position] + "?").setPositiveButton("Call", dialogClickListener)
     	    .setNegativeButton("No", dialogClickListener).show();
     	
     }
     
+    public void viewAbout(View view){
+    	Intent intent = new Intent(this, DisplayAboutActivity.class);
+    	startActivity(intent);
+    }
    
 
     class IconicAdapter extends ArrayAdapter<String>{

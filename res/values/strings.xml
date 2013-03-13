@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">TakeAwayMalaysia</string>
@@ -9,5 +10,7 @@
     <string name="logo">logo</string>
     <string name="header">header</string>
     <string name="take_away_malaysia">Take Away Malaysia</string>
+    <string name="title_activity_display_about">DisplayAboutActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
