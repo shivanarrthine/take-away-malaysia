@@ -64,21 +64,35 @@ public class MainActivity extends ListActivity {
     	super.onDestroy();
     }
 
-    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main, menu);
+        return true;
+    }
 	
 	@SuppressLint("NewApi")
 	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
+    public boolean onOptionsItemSelected(MenuItem item) {
+		/*MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.activity_main, menu);
 	    MenuItem item = menu.findItem(R.id.menu_item_share);
 	    mShareActionProvider = (ShareActionProvider) item.getActionProvider();
 	    mShareActionProvider.setShareIntent(createShareIntent());
+	    MenuItem about = menu.findItem(R.id.menu_item_about);*/
+		switch(item.getItemId()){
+		case R.id.menu_item_share:
+			mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+		    mShareActionProvider.setShareIntent(createShareIntent());
+		    return true;
+		case R.id.menu_item_about:
+			Intent intent = new Intent(this, DisplayAboutActivity.class);
+	    	startActivity(intent);
+	    	return true;
+	    default:
+	    	return super.onOptionsItemSelected(item);
+		}
 	    
-	    
-	    
-	    
-	    return true;
     }
     
 	/* Call to update the share intent
@@ -122,12 +136,12 @@ public class MainActivity extends ListActivity {
     	    .setNegativeButton("No", dialogClickListener).show();
     	
     }
-    
+    /*
     public void viewAbout(View view){
     	Intent intent = new Intent(this, DisplayAboutActivity.class);
     	startActivity(intent);
     }
-   
+   */
 
     class IconicAdapter extends ArrayAdapter<String>{
     	public IconicAdapter() {
