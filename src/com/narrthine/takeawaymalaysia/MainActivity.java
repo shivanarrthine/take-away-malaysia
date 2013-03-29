@@ -1,6 +1,7 @@
 package com.narrthine.takeawaymalaysia;
 
 
+
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,20 +27,30 @@ public class MainActivity extends ListActivity {
 	public String[] outletsNum = new String[] {"1300305555", "1300880241", "1300888333", "1300888878", "1300131300", "1300886555", "1300887272", "1300882525", "1300888333"};
 	public int[] logos = {R.drawable.burgerking, R.drawable.canadianpizza, R.drawable.domino, R.drawable.kennyrogers, R.drawable.mcd, R.drawable.nandos, R.drawable.papajohns, R.drawable.pizzahut, R.drawable.phd};
 	
-	private ShareActionProvider mShareActionProvider;
+	public ShareActionProvider mShareActionProvider;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // removes title on view
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // to view take away malaysia header
-       // View header = getLayoutInflater().inflate(R.layout.window_title, null);
+        
         // get list view
-        getActionBar().setDisplayShowTitleEnabled(false);
-        ListView lv = getListView();
-       // lv.addHeaderView(header);
-        setListAdapter(new IconicAdapter());
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB){
+        	getActionBar().setDisplayShowTitleEnabled(false);
+        	ListView lv = getListView();
+           
+             setListAdapter(new IconicAdapter());
+        }
+        else{
+        	// removes title on view
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            // to view take away malaysia header
+           View header = getLayoutInflater().inflate(R.layout.window_title, null);
+           ListView lv = getListView();
+            lv.addHeaderView(header);
+            setListAdapter(new IconicAdapter());
+        }
+        
+        
         
         
     }
@@ -104,7 +115,7 @@ public class MainActivity extends ListActivity {
 	    
 	}*/
 	
-	private Intent createShareIntent(){
+	public Intent createShareIntent(){
 		Intent I = new Intent(Intent.ACTION_SEND);
 		I.setType("text/plain");
 		I.putExtra(android.content.Intent.EXTRA_TEXT, "I'm using Take Away Malaysia to order fast food. Download it today! https://play.google.com/store/apps/details?id=com.narrthine.takeawaymalaysia");

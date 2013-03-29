@@ -1,5 +1,8 @@
 <resources>
 
     <style name="AppTheme" parent="android:Theme.Holo.Light" />
-
+	<style name="CustomTheme" parent="android:Theme.Holo.Light">
+        <item name="android:windowTitleSize">35dip</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+    </style>
 </resources>

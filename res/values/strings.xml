@@ -12,5 +12,9 @@
     <string name="take_away_malaysia">Take Away Malaysia</string>
     <string name="title_activity_display_about">DisplayAboutActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="version_1_2">Version 1.2</string>
+    <string name="developed_by_shiva_narrthine">Developed by Shiva Narrthine</string>
+    <string name="google_">http://gplus.to/shivanarrthine</string>
+    <string name="twitter">http://twitter.com/narrthine"</string>
 
 </resources>
