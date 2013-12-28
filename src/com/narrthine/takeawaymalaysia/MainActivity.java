@@ -23,9 +23,9 @@ import android.widget.ShareActionProvider;
 public class MainActivity extends ListActivity {
 	
 	// Names of outlets, numbers, and logo
-	public String[] outletsName = new String[] {"Burger King", "Canadian Pizza", "Domino's", "Kenny Rogers Roasters", "McDonalds", "Nandos", "Papa John's", "Pizza Hut", "Pizza Hut Delivery" };
-	public String[] outletsNum = new String[] {"1300305555", "1300880241", "1300888333", "1300888878", "1300131300", "1300886555", "1300887272", "1300882525", "1300888333"};
-	public int[] logos = {R.drawable.burgerking, R.drawable.canadianpizza, R.drawable.domino, R.drawable.kennyrogers, R.drawable.mcd, R.drawable.nandos, R.drawable.papajohns, R.drawable.pizzahut, R.drawable.phd};
+	public String[] outletsName = new String[] {"Burger King", "Canadian Pizza", "Domino's", "Kenny Rogers Roasters", "McDonalds", "Nandos", "Papa John's", "Pizza Hut"};
+	public String[] outletsNum = new String[] {"1300305555", "1300880241", "1300888333", "1300888878", "1300131300", "1300886555", "1300887272", "1300882525"};
+	public int[] logos = {R.drawable.burgerking, R.drawable.canadianpizza, R.drawable.domino, R.drawable.kennyrogers, R.drawable.mcd, R.drawable.nandos, R.drawable.papajohns, R.drawable.pizzahut};
 	
 	public ShareActionProvider mShareActionProvider;
 
@@ -85,23 +85,21 @@ public class MainActivity extends ListActivity {
 	@SuppressLint("NewApi")
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-		/*MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.activity_main, menu);
-	    MenuItem item = menu.findItem(R.id.menu_item_share);
-	    mShareActionProvider = (ShareActionProvider) item.getActionProvider();
-	    mShareActionProvider.setShareIntent(createShareIntent());
-	    MenuItem about = menu.findItem(R.id.menu_item_about);*/
-		switch(item.getItemId()){
-		case R.id.menu_item_share:
+		int itemId = item.getItemId();
+		if (itemId == R.id.menu_item_share) {
 			mShareActionProvider = (ShareActionProvider) item.getActionProvider();
-		    mShareActionProvider.setShareIntent(createShareIntent());
-		    return true;
-		case R.id.menu_item_about:
+			mShareActionProvider.setShareIntent(createShareIntent());
+			return true;
+		} else if (itemId == R.id.menu_item_rate) {
+			String str ="https://play.google.com/store/apps/details?id=com.narrthine.takeawaymalaysia";
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(str)));
+			return true;
+		} else if (itemId == R.id.menu_item_about) {
 			Intent intent = new Intent(this, DisplayAboutActivity.class);
-	    	startActivity(intent);
-	    	return true;
-	    default:
-	    	return super.onOptionsItemSelected(item);
+			startActivity(intent);
+			return true;
+		} else {
+			return super.onOptionsItemSelected(item);
 		}
 	    
     }
