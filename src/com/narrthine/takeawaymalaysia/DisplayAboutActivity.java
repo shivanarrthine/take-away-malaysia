@@ -1,7 +1,10 @@
 package com.narrthine.takeawaymalaysia;
 
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -14,6 +17,7 @@ import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 
+@SuppressLint("NewApi")
 public class DisplayAboutActivity extends Activity {
 	
 	
@@ -36,6 +40,7 @@ public class DisplayAboutActivity extends Activity {
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */
+	@SuppressLint("NewApi")
 	private void setupActionBar() {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,6 +55,8 @@ public class DisplayAboutActivity extends Activity {
 		return true;
 	}
 
+	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -67,6 +74,10 @@ public class DisplayAboutActivity extends Activity {
 			mainactivity.mShareActionProvider = (ShareActionProvider) item.getActionProvider();
 		    mainactivity.mShareActionProvider.setShareIntent(mainactivity.createShareIntent());
 		    return true;
+		case R.id.menu_item_rate:
+			String str ="https://play.google.com/store/apps/details?id=com.narrthine.takeawaymalaysia";
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(str)));
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}

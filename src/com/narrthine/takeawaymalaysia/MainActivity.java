@@ -20,16 +20,18 @@ import android.widget.ShareActionProvider;
 
 
 
+@SuppressLint("NewApi")
 public class MainActivity extends ListActivity {
 	
 	// Names of outlets, numbers, and logo
-	public String[] outletsName = new String[] {"Burger King", "Canadian Pizza", "Domino's", "Kenny Rogers Roasters", "McDonalds", "Nandos", "Papa John's", "Pizza Hut"};
-	public String[] outletsNum = new String[] {"1300305555", "1300880241", "1300888333", "1300888878", "1300131300", "1300886555", "1300887272", "1300882525"};
-	public int[] logos = {R.drawable.burgerking, R.drawable.canadianpizza, R.drawable.domino, R.drawable.kennyrogers, R.drawable.mcd, R.drawable.nandos, R.drawable.papajohns, R.drawable.pizzahut};
+	public String[] outletsName = new String[] {"Burger King", "Canadian Pizza", "Domino's", "Kenny Rogers Roasters", "KFC", "McDonalds", "Nandos", "Papa John's", "Pizza Hut"};
+	public String[] outletsNum = new String[] {"1300305555", "1300880241", "1300888333", "1300888878", "1300222888", "1300131300", "1300886555", "1300887272", "1300882525"};
+	public int[] logos = {R.drawable.burgerking, R.drawable.canadianpizza, R.drawable.domino, R.drawable.kennyrogers, R.drawable.kfc, R.drawable.mcd, R.drawable.nandos, R.drawable.papajohns, R.drawable.pizzahut};
 	
 	public ShareActionProvider mShareActionProvider;
 
-    @Override
+    @SuppressLint("NewApi")
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
